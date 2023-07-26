@@ -42,7 +42,7 @@ metadata:
     provider: Red Hat
     repository: https://github.com/openshift/hw-event-proxy
     support: Red Hat
-  name: hw-event-proxy-operator.v4.15.0
+  name: hw-event-proxy-operator.v4.17.0
   namespace: openshift-bare-metal-events
 spec:
   apiservicedefinitions: {}
@@ -302,7 +302,7 @@ spec:
                 - name: RELEASE_VERSION
                   value: v0.0.1
                 - name: HW_EVENT_PROXY_IMAGE
-                  value: quay.io/openshift/origin-baremetal-hardware-event-proxy:4.15
+                  value: quay.io/jacding/hw-event-proxy-operator:4.17.0
                 - name: KUBE_RBAC_PROXY_IMAGE
                   value: quay.io/openshift/origin-kube-rbac-proxy:4.15
                 - name: CLOUD_EVENT_PROXY_IMAGE
@@ -311,8 +311,8 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.annotations['olm.targetNamespaces']
-                image: quay.io/openshift/origin-baremetal-hardware-event-proxy-operator:4.15.0
-                imagePullPolicy: IfNotPresent
+                image: quay.io/jacding/hw-event-proxy-operator:4.17.0
+                imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -420,7 +420,7 @@ spec:
   provider:
     name: Red Hat Inc
   replaces: hw-event-proxy-operator.v4.14.0
-  version: 4.15.0
+  version: 4.17.0
   webhookdefinitions:
   - admissionReviewVersions:
     - v1

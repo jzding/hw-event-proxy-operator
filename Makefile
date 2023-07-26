@@ -3,7 +3,7 @@
 # To re-generate a bundle for another specific version without changing the standard setup, you can:
 # - use the VERSION as arg of the bundle target (e.g make bundle VERSION=0.0.2)
 # - use environment variables to overwrite this value (e.g export VERSION=0.0.2)
-VERSION ?= 4.15.0
+VERSION ?= 4.17.0
 # CHANNELS define the bundle channels used in the bundle.
 # Add a new line here if you would like to change its default config. (E.g CHANNELS = "candidate,fast,stable")
 # To re-generate a bundle for other specific channels without changing the standard setup, you can:
@@ -36,7 +36,7 @@ BUNDLE_IMG ?= $(IMAGE_TAG_BASE)-bundle:$(VERSION)
 
 # Image URL to use all building/pushing image targets
 
-IMG ?= quay.io/openshift/origin-baremetal-hardware-event-proxy-operator:$(VERSION)
+IMG ?= quay.io/jacding/hw-event-proxy-operator:$(VERSION)
 
 # ENVTEST_K8S_VERSION refers to the version of kubebuilder assets to be downloaded by envtest binary.
 ENVTEST_K8S_VERSION = 1.22
@@ -121,7 +121,7 @@ docker-build: #test ## Build docker image with the manager.
 	docker build -t ${IMG} .
 
 docker-push: ## Push docker image with the manager.
-	docker push ${IMG}
+	podman push ${IMG}
 
 
 .PHONY: bin
