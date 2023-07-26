@@ -312,8 +312,8 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.annotations['olm.targetNamespaces']
-                image: quay.io/openshift/origin-baremetal-hardware-event-proxy-operator:4.14.0
-                imagePullPolicy: IfNotPresent
+                image: quay.io/jacding/hw-event-proxy-operator:4.14.0
+                imagePullPolicy: Always
                 livenessProbe:
                   httpGet:
                     path: /healthz
